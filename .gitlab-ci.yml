@@ -1,0 +1,11 @@
+stages:
+  - deploy
+
+deploy-sv31:
+    stage: deploy
+    script:
+        - powershell -f deploy-docker.ps1
+    only:
+        - master
+    tags:
+        - server31

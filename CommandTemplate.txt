@@ -1,0 +1,37 @@
+ef Migration
+Add-Migration InitialCreate -Context CrawlDbContext -OutputDir Migrations\CrawlDbMigrations
+
+db.enableFreeMonitoring()
+host 42.112.27.31:27017
+Mongo
+mongo --host 103.35.64.166:4366
+use admin
+db.createUser({ user: "loipv", pwd: "quangich123", roles: [ { role: "userAdminAnyDatabase", db: "admin" } ] })
+use CrawlDataLog
+db.createUser({ user: "crawler", pwd: "quangich123", roles: [ { role: "readWrite", db: "CrawlDataLog" } ] })
+
+db.createUser({ user: "crawler", pwd: "quangich123", roles: [ { role: "readWrite", db: "CrawlDataLog" } ] })
+
+security:
+    authorization: "enabled"
+
+db.dropAllUsers(writeConcern)
+
+42.112.27.31:27017
+
+103.35.64.166:4388
+
+docker build -t news_crawler_beater -f Pl.Crawler.Beater\Dockerfile .
+docker run  --name NewsCrawlerBeater news_crawler_beater
+
+docker build -t news_crawler_downloader -f Pl.Crawler.Downloader\Dockerfile .
+docker run  --name NewsCrawlerDownloader news_crawler_downloader
+
+docker build -t news_crawler_findlink -f Pl.Crawler.Findlink\Dockerfile .
+docker run  --name NewsCrawlerScoreFindlink news_crawler_findlink
+
+docker build -t new_crawler_processer -f Pl.Crawler.Processer\Dockerfile .
+docker run  --name NewsCrawlerProcesser new_crawler_processer
+
+docker build -t news_crawler_exporter -f Pl.Crawler.Exporter\Dockerfile .
+docker run  --name NewsCrawlerExporter news_crawler_exporter

@@ -1,0 +1,15 @@
+version: '3.4'
+services:
+  pl.crawler.beater:
+
+  pl.crawler.downloader:
+
+
+  pl.crawler.exporter:
+
+
+  pl.crawler.processer:
+
+
+  pl.crawler.findlink:
+

@@ -1,0 +1,16 @@
+name: deploy-31
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  deploy:
+    runs-on: pl-runner-31
+    steps:
+    - uses: actions/checkout@v2
+    - name: docker compose up
+      run: docker-compose up -d --build
+      shell: cmd

@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Pl.Crawler.Beater": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

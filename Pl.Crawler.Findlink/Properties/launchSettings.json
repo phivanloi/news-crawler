@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Pl.Crawler.Findlink": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

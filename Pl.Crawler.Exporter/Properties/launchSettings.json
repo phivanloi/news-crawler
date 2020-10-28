@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Pl.Crawler.Exporter": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
